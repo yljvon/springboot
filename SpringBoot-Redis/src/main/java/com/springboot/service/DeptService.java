@@ -1,5 +1,7 @@
 package com.springboot.service;
 
+import java.util.List;
+
 import com.springboot.entity.Dept;
 
 /**
@@ -10,5 +12,7 @@ import com.springboot.entity.Dept;
 public interface DeptService {
 
 	Dept get(Long id);
+
+	List<Dept> findAll();
 
 }
