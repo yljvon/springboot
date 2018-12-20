@@ -5,6 +5,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.springboot.entity.Orders;
 import com.springboot.mapper.OrdersDao;
@@ -17,7 +18,7 @@ public class SpringBootTest1ApplicationTests {
 	
 	@Test
 	public void contextLoads() {
-	
+		//乐观锁
 		Orders o1=ordersDao.findid(1);
 		Orders o2=ordersDao.findid(1);
 		System.out.println(o1);
@@ -32,5 +33,16 @@ public class SpringBootTest1ApplicationTests {
 		
 	}
 
+	@Test
+	@Transactional
+	public void manager() {
+		//事务测试
+		Orders o1=new Orders(13, "面包13", 1, 1);
+		
+		int a=ordersDao.insert(o1);
+		int as=10/0;
+	}
+	
+	
 }
 

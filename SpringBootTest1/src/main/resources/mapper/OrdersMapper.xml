@@ -14,6 +14,10 @@
 	<select id="findid"  parameterType="int"      resultType="Orders">
 	select * from orders where id=#{id}
 	</select>
+	<insert id="insert"  parameterType="Orders">
+	insert into orders (id,name,status,version) values(#{id},#{name},#{status},#{version})
+	</insert>
+	
 </mapper>
  
 

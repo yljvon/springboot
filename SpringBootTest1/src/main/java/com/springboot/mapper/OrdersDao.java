@@ -15,5 +15,7 @@ public interface OrdersDao
 {
 	int updateGoodsUseCAS(Orders orders);
 
-	Orders findid(int i);  
+	Orders findid(int i);
+
+	int insert(Orders o1);  
 }
